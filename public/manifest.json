@@ -2,7 +2,7 @@
 	"homepage_url": "https://app.osmosis.zone/",
 	"icons": [
 		{
-			"src": "./public/assets/favicon/favicon96.png",
+			"src": "./assets/favicon/favicon96.png",
 			"sizes": "96x96",
 			"type": "image/png"
 		}
@@ -10,7 +10,6 @@
 	"orientation": "portrait",
 	"name": "Osmosis",
 	"description": "The first IBC-native Cosmos interchain AMM",
-	"iconPath": "./images/256x256_App_Icon_Pink.svg",
 	"short_name": "Osmosis",
 	"start_url": ".",
 	"theme_color": "#170f34"
