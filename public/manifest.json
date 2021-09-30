@@ -8,9 +8,10 @@
 		}
 	],
 	"orientation": "portrait",
-	"name": "Osmosis",
+	"name": "Osmosis UNOFFICIAL",
 	"description": "The first IBC-native Cosmos interchain AMM",
-	"short_name": "Osmosis",
+	"short_name": "Osmosis UNOFFICIAL",
 	"start_url": ".",
-	"theme_color": "#170f34"
+	"theme_color": "#170f34",
+	"skylink": "AQDqitdFxUxwpXUGvfn3FS-x90OdaUR_b80v3pldJiYx5w"
 }
