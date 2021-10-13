@@ -28,6 +28,8 @@ export const LockupAbledPoolIds: {
 	'10': true,
 	'13': true,
 	'15': true,
+	'461': true,
+	'482': true,
 };
 
 export const PromotedLBPPoolIds: {
@@ -37,13 +39,13 @@ export const PromotedLBPPoolIds: {
 	destDenom: string;
 }[] = [
 	/*
-	{
-		poolId: '21',
-		name: 'Regen Network',
-		baseDenom: DenomHelper.ibcDenom([{ portId: 'transfer', channelId: 'channel-8' }], 'uregen'),
-		destDenom: DenomHelper.ibcDenom([{ portId: 'transfer', channelId: 'channel-0' }], 'uatom'),
-	},
-	 */
+		{
+			poolId: '21',
+			name: 'Regen Network',
+			baseDenom: DenomHelper.ibcDenom([{ portId: 'transfer', channelId: 'channel-8' }], 'uregen'),
+			destDenom: DenomHelper.ibcDenom([{ portId: 'transfer', channelId: 'channel-0' }], 'uatom'),
+		},
+		 */
 ];
 export const HideAddLiquidityPoolIds: {
 	[poolId: string]: boolean;
@@ -66,12 +68,47 @@ export const PreferHeaderShowTokenPricePoolIds: {
 	 */
 };
 export const ExtraGaugeInPool: {
-	[poolId: string]: {
-		gaugeId: string;
-		denom: string;
-		extraRewardAmount?: Int;
-	};
-} = {};
+	[poolId: string]:
+		| {
+				gaugeId: string;
+				denom: string;
+				extraRewardAmount?: Int;
+		  }
+		| {
+				gaugeId: string;
+				denom: string;
+				extraRewardAmount?: Int;
+		  }[];
+} = {
+	'482': [
+		{
+			gaugeId: '1468',
+			denom: 'ibc/1DC495FCEFDA068A3820F903EDBD78B942FBD204D7E93D3BA2B432E9669D1A59',
+		},
+		{
+			gaugeId: '1469',
+			denom: 'ibc/1DC495FCEFDA068A3820F903EDBD78B942FBD204D7E93D3BA2B432E9669D1A59',
+		},
+		{
+			gaugeId: '1470',
+			denom: 'ibc/1DC495FCEFDA068A3820F903EDBD78B942FBD204D7E93D3BA2B432E9669D1A59',
+		},
+	],
+	'461': [
+		{
+			gaugeId: '1471',
+			denom: 'ibc/1DC495FCEFDA068A3820F903EDBD78B942FBD204D7E93D3BA2B432E9669D1A59',
+		},
+		{
+			gaugeId: '1472',
+			denom: 'ibc/1DC495FCEFDA068A3820F903EDBD78B942FBD204D7E93D3BA2B432E9669D1A59',
+		},
+		{
+			gaugeId: '1473',
+			denom: 'ibc/1DC495FCEFDA068A3820F903EDBD78B942FBD204D7E93D3BA2B432E9669D1A59',
+		},
+	],
+};
 
 export const PoolsPerPage = 10;
 export const RewardEpochIdentifier = 'day';
@@ -147,6 +184,18 @@ export const IBCAssetInfos: {
 		sourceChannelId: 'channel-37',
 		destChannelId: 'channel-0',
 		coinMinimalDenom: 'eeur',
+	},
+	{
+		counterpartyChainId: 'juno-1',
+		sourceChannelId: 'channel-42',
+		destChannelId: 'channel-0',
+		coinMinimalDenom: 'ujuno',
+	},
+	{
+		counterpartyChainId: 'microtick-1',
+		sourceChannelId: 'channel-39',
+		destChannelId: 'channel-16',
+		coinMinimalDenom: 'utick',
 	},
 ];
 
@@ -517,6 +566,7 @@ export const EmbedChainInfos: ChainInfoWithExplorer[] = [
 				coinDenom: 'EEUR',
 				coinMinimalDenom: 'eeur',
 				coinDecimals: 6,
+				coinGeckoId: 'e-money-eur',
 				coinImageUrl: window.location.origin + '/public/assets/tokens/ngm.png',
 			},
 		],
@@ -536,5 +586,79 @@ export const EmbedChainInfos: ChainInfoWithExplorer[] = [
 		},
 		features: ['stargate', 'ibc-transfer'],
 		explorerUrlToTx: 'https://emoney.bigdipper.live/transactions/${txHash}',
+	},
+	{
+		rpc: 'https://rpc-juno.itastakers.com',
+		rest: 'https://lcd-juno.itastakers.com',
+		chainId: 'juno-1',
+		chainName: 'Juno',
+		stakeCurrency: {
+			coinDenom: 'JUNO',
+			coinMinimalDenom: 'ujuno',
+			coinDecimals: 6,
+			coinGeckoId: 'pool:ujuno',
+			coinImageUrl: window.location.origin + '/public/assets/tokens/juno.svg',
+		},
+		bip44: {
+			coinType: 118,
+		},
+		bech32Config: Bech32Address.defaultBech32Config('juno'),
+		currencies: [
+			{
+				coinDenom: 'JUNO',
+				coinMinimalDenom: 'ujuno',
+				coinDecimals: 6,
+				coinGeckoId: 'pool:ujuno',
+				coinImageUrl: window.location.origin + '/public/assets/tokens/juno.svg',
+			},
+		],
+		feeCurrencies: [
+			{
+				coinDenom: 'JUNO',
+				coinMinimalDenom: 'ujuno',
+				coinDecimals: 6,
+				coinGeckoId: 'pool:ujuno',
+				coinImageUrl: window.location.origin + '/public/assets/tokens/juno.svg',
+			},
+		],
+		features: ['stargate', 'ibc-transfer'],
+		explorerUrlToTx: 'http://junoscan.com/tx/${txHash}',
+	},
+	{
+		rpc: 'https://rpc-microtick.keplr.app',
+		rest: 'https://lcd-microtick.keplr.app',
+		chainId: 'microtick-1',
+		chainName: 'Microtick',
+		stakeCurrency: {
+			coinDenom: 'TICK',
+			coinMinimalDenom: 'utick',
+			coinDecimals: 6,
+			coinGeckoId: 'pool:utick',
+			coinImageUrl: window.location.origin + '/public/assets/tokens/tick.svg',
+		},
+		bip44: {
+			coinType: 118,
+		},
+		bech32Config: Bech32Address.defaultBech32Config('micro'),
+		currencies: [
+			{
+				coinDenom: 'TICK',
+				coinMinimalDenom: 'utick',
+				coinDecimals: 6,
+				coinGeckoId: 'pool:utick',
+				coinImageUrl: window.location.origin + '/public/assets/tokens/tick.svg',
+			},
+		],
+		feeCurrencies: [
+			{
+				coinDenom: 'TICK',
+				coinMinimalDenom: 'utick',
+				coinDecimals: 6,
+				coinGeckoId: 'pool:utick',
+				coinImageUrl: window.location.origin + '/public/assets/tokens/tick.svg',
+			},
+		],
+		features: ['stargate', 'ibc-transfer'],
+		explorerUrlToTx: 'https://explorer.microtick.zone/transactions/${txHash}',
 	},
 ];
