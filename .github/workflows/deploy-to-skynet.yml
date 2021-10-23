@@ -14,6 +14,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 15.x
+      - uses: c-hive/gha-yarn-cache@v2
 
       - run: yarn
       - run: yarn build
