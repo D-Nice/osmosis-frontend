@@ -1,0 +1,18 @@
+name: Sync With Upstream Osmosis
+
+on:
+  schedule:
+    - cron: '38 */3 * * *'
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: tgymnich/fork-sync@v1.4
+        with:
+          owner: osmosis-labs
+          base: master
+          head: master
