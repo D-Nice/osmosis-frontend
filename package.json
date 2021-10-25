@@ -150,7 +150,7 @@
 		"webpack-cli": "^3.3.7",
 		"webpack-dev-server": "^3.8.2",
 		"write-file-webpack-plugin": "^4.5.1",
-		"ws": "^7.4.5"
+		"ws": "^7.4.6"
 	},
 	"importSort": {
 		".js, .jsx, .ts, .tsx": {
