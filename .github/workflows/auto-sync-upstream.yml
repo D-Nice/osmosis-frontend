@@ -7,12 +7,14 @@ on:
 
 jobs:
   sync:
-
+    environment: D-Nice-bot
     runs-on: ubuntu-latest
 
     steps:
-      - uses: tgymnich/fork-sync@v1.4
+      - uses: tgymnich/fork-sync@v1.3
         with:
           owner: osmosis-labs
-          base: master
-          head: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.DNICEBOT_PAT }}
+          auto_approve: true
+
