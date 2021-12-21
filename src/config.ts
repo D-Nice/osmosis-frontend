@@ -55,9 +55,9 @@ export const PromotedLBPPoolIds: {
 	baseDenom: string;
 }[] = [
 	{
-		poolId: '604',
-		name: 'Stargaze',
-		baseDenom: DenomHelper.ibcDenom([{ portId: 'transfer', channelId: 'channel-75' }], 'ustars'),
+		poolId: '608',
+		name: 'Lum Network',
+		baseDenom: DenomHelper.ibcDenom([{ portId: 'transfer', channelId: 'channel-115' }], 'ulum'),
 	},
 ];
 
@@ -577,6 +577,13 @@ export const IBCAssetInfos: {
 		sourceChannelId: 'channel-113',
 		destChannelId: 'channel-7',
 		coinMinimalDenom: 'uhuahua',
+	},
+	{
+		counterpartyChainId: 'lum-network-1',
+		sourceChannelId: 'channel-115',
+		destChannelId: 'channel-3',
+		coinMinimalDenom: 'ulum',
+		isUnstable: true, // Until Dec. 24 17:00 UTC
 	},
 ];
 
@@ -1564,5 +1571,43 @@ export const EmbedChainInfos: ChainInfoWithExplorer[] = [
 		},
 		features: ['stargate', 'ibc-transfer', 'no-legacy-stdTx'],
 		explorerUrlToTx: 'https://ping.pub/chihuahua/tx/{txHash}',
+	},
+	{
+		rpc: 'https://node0.mainnet.lum.network/rpc',
+		rest: 'https://node0.mainnet.lum.network/rest',
+		chainId: 'lum-network-1',
+		chainName: 'Lum Network',
+		stakeCurrency: {
+			coinDenom: 'LUM',
+			coinMinimalDenom: 'ulum',
+			coinDecimals: 6,
+			coinGeckoId: 'pool:ulum',
+			coinImageUrl: window.location.origin + '/public/assets/tokens/lum.svg',
+		},
+		bip44: {
+			coinType: 118,
+		},
+		bech32Config: Bech32Address.defaultBech32Config('lum'),
+		currencies: [
+			{
+				coinDenom: 'LUM',
+				coinMinimalDenom: 'ulum',
+				coinDecimals: 6,
+				coinGeckoId: 'pool:ulum',
+				coinImageUrl: window.location.origin + '/public/assets/tokens/lum.svg',
+			},
+		],
+		feeCurrencies: [
+			{
+				coinDenom: 'LUM',
+				coinMinimalDenom: 'ulum',
+				coinDecimals: 6,
+				coinGeckoId: 'pool:ulum',
+				coinImageUrl: window.location.origin + '/public/assets/tokens/lum.svg',
+			},
+		],
+		coinType: 118,
+		features: ['stargate', 'ibc-transfer', 'no-legacy-stdTx', 'ibc-go'],
+		explorerUrlToTx: 'https://www.mintscan.io/lum/txs/{txHash}',
 	},
 ];
