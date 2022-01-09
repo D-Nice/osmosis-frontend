@@ -173,29 +173,29 @@ export const ExtraGaugeInPool: {
 	],
 	'560': [
 		{
-			gaugeId: '1790',
+			gaugeId: '1948',
 			denom: 'ibc/0EF15DF2F02480ADE0BB6E85D9EBB5DAEA2836D3860E9F97F9AADE4F57A31AA0',
 		},
 		{
-			gaugeId: '1792',
+			gaugeId: '1949',
 			denom: 'ibc/0EF15DF2F02480ADE0BB6E85D9EBB5DAEA2836D3860E9F97F9AADE4F57A31AA0',
 		},
 		{
-			gaugeId: '1793',
+			gaugeId: '1950',
 			denom: 'ibc/0EF15DF2F02480ADE0BB6E85D9EBB5DAEA2836D3860E9F97F9AADE4F57A31AA0',
 		},
 	],
 	'562': [
 		{
-			gaugeId: '1789',
+			gaugeId: '1951',
 			denom: 'ibc/0EF15DF2F02480ADE0BB6E85D9EBB5DAEA2836D3860E9F97F9AADE4F57A31AA0',
 		},
 		{
-			gaugeId: '1791',
+			gaugeId: '1952',
 			denom: 'ibc/0EF15DF2F02480ADE0BB6E85D9EBB5DAEA2836D3860E9F97F9AADE4F57A31AA0',
 		},
 		{
-			gaugeId: '1794',
+			gaugeId: '1953',
 			denom: 'ibc/0EF15DF2F02480ADE0BB6E85D9EBB5DAEA2836D3860E9F97F9AADE4F57A31AA0',
 		},
 	],
@@ -391,6 +391,34 @@ export const ExtraGaugeInPool: {
 			denom: 'ibc/7A08C6F11EF0F59EB841B9F788A87EC9F2361C7D9703157EC13D940DC53031FA',
 		},
 	],
+	'605': [
+		{
+			gaugeId: '1960',
+			denom: 'ibc/B9E0A1A524E98BB407D3CED8720EFEFD186002F90C1B1B7964811DD0CCC12228',
+		},
+		{
+			gaugeId: '1961',
+			denom: 'ibc/B9E0A1A524E98BB407D3CED8720EFEFD186002F90C1B1B7964811DD0CCC12228',
+		},
+		{
+			gaugeId: '1962',
+			denom: 'ibc/B9E0A1A524E98BB407D3CED8720EFEFD186002F90C1B1B7964811DD0CCC12228',
+		},
+	],
+	'606': [
+		{
+			gaugeId: '1963',
+			denom: 'ibc/B9E0A1A524E98BB407D3CED8720EFEFD186002F90C1B1B7964811DD0CCC12228',
+		},
+		{
+			gaugeId: '1964',
+			denom: 'ibc/B9E0A1A524E98BB407D3CED8720EFEFD186002F90C1B1B7964811DD0CCC12228',
+		},
+		{
+			gaugeId: '1965',
+			denom: 'ibc/B9E0A1A524E98BB407D3CED8720EFEFD186002F90C1B1B7964811DD0CCC12228'
+		},
+	],
 };
 
 export const PoolsPerPage = 10;
@@ -578,6 +606,12 @@ export const IBCAssetInfos: {
 		sourceChannelId: 'channel-115',
 		destChannelId: 'channel-3',
 		coinMinimalDenom: 'ulum',
+	},
+	{
+		counterpartyChainId: 'vidulum-1',
+		sourceChannelId: 'channel-124',
+		destChannelId: 'channel-0',
+		coinMinimalDenom: 'uvdl',
 	},
 ];
 
@@ -1603,5 +1637,43 @@ export const EmbedChainInfos: ChainInfoWithExplorer[] = [
 		coinType: 118,
 		features: ['stargate', 'ibc-transfer', 'no-legacy-stdTx', 'ibc-go'],
 		explorerUrlToTx: 'https://www.mintscan.io/lum/txs/{txHash}',
+	},
+	{
+		rpc: 'https://mainnet-rpc.vidulum.app',
+		rest: 'https://mainnet-lcd.vidulum.app',
+		chainId: 'vidulum-1',
+		chainName: 'Vidulum',
+		stakeCurrency: {
+			coinDenom: 'VDL',
+			coinMinimalDenom: 'uvdl',
+			coinDecimals: 6,
+			coinGeckoId: 'vidulum',
+			coinImageUrl: window.location.origin + '/public/assets/tokens/vdl.svg',
+		},
+		bip44: {
+			coinType: 370,
+		},
+		bech32Config: Bech32Address.defaultBech32Config('vdl'),
+		currencies: [
+			{
+				coinDenom: 'VDL',
+				coinMinimalDenom: 'uvdl',
+				coinDecimals: 6,
+				coinGeckoId: 'vidulum',
+				coinImageUrl: window.location.origin + '/public/assets/tokens/vdl.svg',
+			},
+		],
+		feeCurrencies: [
+			{
+				coinDenom: 'VDL',
+				coinMinimalDenom: 'uvdl',
+				coinDecimals: 6,
+				coinGeckoId: 'vidulum',
+				coinImageUrl: window.location.origin + '/public/assets/tokens/vdl.svg',
+			},
+		],
+		coinType: 370,
+		features: ['stargate', 'ibc-transfer', 'no-legacy-stdTx', 'ibc-go'],
+		explorerUrlToTx: 'https://explorers.vidulum.app/vidulum/tx/{txHash}',
 	},
 ];
