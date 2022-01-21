@@ -432,6 +432,21 @@ export class RootStore {
 				],
 			},
 			{
+				poolId: '15',
+				currencies: [
+					{
+						coinMinimalDenom: 'uosmo',
+						coinDenom: 'OSMO',
+						coinDecimals: 6,
+					},
+					{
+						coinMinimalDenom: DenomHelper.ibcDenom([{ portId: 'transfer', channelId: 'channel-4' }], 'uxprt'),
+						coinDenom: 'XPRT',
+						coinDecimals: 6,
+					},
+				],
+			},
+			{
 				poolId: '22',
 				currencies: [
 					{
@@ -727,6 +742,21 @@ export class RootStore {
 					{
 						coinMinimalDenom: DenomHelper.ibcDenom([{ portId: 'transfer', channelId: 'channel-72' }], 'uusd'),
 						coinDenom: 'UST',
+						coinDecimals: 6,
+					},
+				],
+			},
+			{
+				poolId: '580',
+				currencies: [
+					{
+						coinMinimalDenom: DenomHelper.ibcDenom([{ portId: 'transfer', channelId: 'channel-72' }], 'uusd'),
+						coinDenom: 'UST',
+						coinDecimals: 6,
+					},
+					{
+						coinMinimalDenom: DenomHelper.ibcDenom([{ portId: 'transfer', channelId: 'channel-42' }], 'ujuno'),
+						coinDenom: 'JUNO',
 						coinDecimals: 6,
 					},
 				],
