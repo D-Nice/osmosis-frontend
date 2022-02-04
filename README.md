@@ -39,7 +39,7 @@ yarn
 To build the static assets;
 
 ```bash
-yarn build
+yarn build:css && yarn build
 ```
 
 This should produce `prod` folder with static assets.
@@ -51,7 +51,7 @@ Currently, Osmosis frontend app is SPA with entry point: `prod/index.html`
 To spin up the local dev server;
 
 ```bash
-yarn dev
+yarn build:css && yarn dev
 ```
 
 The app should be live at http://localhost:8081
