@@ -10,6 +10,7 @@ import { cssAlignRightInput, cssNumberTextInput } from 'src/emotionStyles/forms'
 import { cssFontPoppins } from 'src/emotionStyles/texts';
 import { useStore } from 'src/stores';
 import useWindowSize from 'src/hooks/useWindowSize';
+import { ChangeEvent } from 'react';
 
 interface Props {
 	amount: string;
@@ -20,6 +21,13 @@ interface Props {
 export const TokenAmountInput = observer(({ amount, currency, onChange }: Props) => {
 	const { priceStore } = useStore();
 	const { isMobileView } = useWindowSize();
+
+	const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+		const value = e.currentTarget.value;
+		if (Number(value) <= Number.MAX_SAFE_INTEGER) {
+			onChange(value);
+		}
+	};
 
 	const coinPretty = (() => {
 		if (amount) {
@@ -41,8 +49,12 @@ export const TokenAmountInput = observer(({ amount, currency, onChange }: Props)
 
 	return (
 		<TokenAmountInputContainer>
-			<AmountInput type="number" onChange={e => onChange(e.currentTarget.value)} value={amount} placeholder="0" />
-			<Text weight="semiBold" size="sm" isMobileView={isMobileView} emphasis={!amount ? 'low' : 'high'}>
+			<AmountInput type="number" onChange={handleOnChange} value={amount !== '0' ? amount : ''} placeholder="0" />
+			<Text
+				weight="semiBold"
+				size="sm"
+				isMobileView={isMobileView}
+				emphasis={!amount || amount === '0' ? 'low' : 'high'}>
 				≈ {price.toString()}
 			</Text>
 		</TokenAmountInputContainer>
